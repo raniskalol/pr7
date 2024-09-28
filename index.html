@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="btn" onclick="btnHide()">задание 1</button>
+    <button onclick="divHide()">задание 2 и 3</button>
+    <div id="text">Меня нужно скрыть, а потом обратно показать</div>
+    <div id="zone">
+        <img src="https://ru.js.cx/clipart/ball.svg" id="ball">
+    </div>
+    <script>
+
+        // задание 1
+
+        function btnHide() {
+            let btnVisib = document.getElementById('btn')
+            btn.style.display = 'none';
+        }
+
+        // задание 2 и 3
+
+        function divHide() {
+            let textDiv = document.getElementById('text');
+            if (textDiv.style.display === 'none') {
+                textDiv.style.display = 'block';
+            } else {
+                textDiv.style.display = 'none';
+            }
+        }
+
+        // задание 4
+
+        zone.onclick = function (event) {
+            let zoneCoord = this.getBoundingClientRect();
+            let ballCoords = {
+                top: event.clientY - zoneCoord.top - zone.clientTop - ball.clientHeight / 2,
+                left: event.clientX - zoneCoord.left - zone.clientLeft - ball.clientWidth / 2
+            };
+            ball.style.left = ballCoords.left + 'px';
+            ball.style.top = ballCoords.top + 'px';
+        }
+    </script>
+</body>
